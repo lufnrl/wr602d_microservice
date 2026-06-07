@@ -9,15 +9,20 @@
 parameters:
 
 services:
-    # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: true
+        autoconfigure: true
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    App\Service\MailerService:
+        arguments:
+            $noReplyEmail: '%env(MAILER_NO_REPLY_EMAIL)%'
+            $replyEmail: '%env(MAILER_REPLY_EMAIL)%'
+            $fromName: '%env(MAILER_FROM_NAME)%'
+
+    App\Security\ApiAuthenticator:
+        arguments:
+            $apiHeaderName: '%env(API_HEADER_NAME)%'
+            $apiHeaderValue: '%env(API_HEADER_VALUE)%'
