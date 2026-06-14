@@ -115,5 +115,5 @@ Pour les lancer séparément :
 ```bash
 composer phpstan
 composer cs-check
-composer cs-fix
+composer cs-fix 
 ```
