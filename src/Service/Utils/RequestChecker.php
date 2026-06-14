@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service\Utils;
 
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
 use Symfony\Component\Mailer\MailerInterface;
@@ -26,7 +28,7 @@ class MailerService
             ->to($to)
             ->subject($subject)
             ->text($content)
-            ->html('<p>' . $content . '</p>');
+            ->html('<p>'.$content.'</p>');
     }
 
     private function send(Email $email): void
